@@ -17,7 +17,11 @@ mongoose.connect(process.env.MONGO_URI)
         .catch((err) => console.log("DB Connection Error", err));
 
 // middlewares
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["http://localhost:3000", "https://akshop-hw0t.onrender.com"]
+    }
+));
 app.use(morgan("dev"));
 app.use(express.json()); // for parsing application/json
 
